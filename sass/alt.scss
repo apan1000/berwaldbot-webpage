@@ -1,0 +1,214 @@
+// Font
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+$fonts: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+// Colours
+$black: #333;
+$primary-text-color: #fff;
+$magenta: #de1155;
+$turquoise: #198c80; // Ändra
+$messenger-blue: #0077e5;
+
+// Animation
+$default-transition-time: 175ms;
+
+// Screen variables
+$screen-height-medium: 540px;
+$screen-height-small: 340px;
+$screen-width-medium: 768px;
+$screen-width-small: 420px;
+$screen-width-mini: 330px;
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+body {
+	font: 1em $fonts;
+	font-weight: 300;
+	color: $primary-text-color;
+	background: #fff;
+}
+
+header {
+	height: 240px;
+	padding: 30px 0 50px;
+	background: #fff;
+	
+	@media only screen and (min-height: $screen-height-small) {
+		// height: 60vh;
+	}
+
+	@media only screen and (min-height: $screen-height-medium) {
+		// height: 40vh
+	}
+
+	h1 {
+		font-weight: 300;
+		font-size: 3em;
+		margin-top: 0;
+		color: $magenta;
+		display: flex;
+		justify-content: center;
+
+		@media only screen and (max-width: $screen-width-mini) {
+			font-size: 2.2em;
+		}
+		// text-shadow: 
+  //   1px 0px 1px #ccc, 0px 1px 1px #eee, 
+  //   2px 1px 1px #ccc, 1px 2px 1px #eee,
+  //   3px 2px 1px #ccc;
+	}
+
+	.button-div {
+		flex-grow: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 15px 0 0;
+	}
+}
+
+.btn {
+	text-decoration: none;
+	padding: 0 24px;
+	height: 58px;
+	line-height: 58px;
+	font-size: 16px;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: .03em;
+
+	border: 2px solid #fff;
+	border-radius: 3px;
+
+	color: #fff;
+	background: transparent;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+	transition: $default-transition-time ease-out;
+
+	&:hover, &:focus {
+		background: #fff;
+		color: $black;
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.21);
+	}
+
+	&:active {
+		background: #fff;
+		color: $black;
+		box-shadow: 0 1px 0px rgba(0, 0, 0, 0.14), 0 1px 0px rgba(0, 0, 0, 0.21);
+	}
+
+	img {
+		display: inline-block;
+		height: 25px;
+		vertical-align: top;
+		margin-right: .5rem;
+	}
+}
+
+.btn-messenger {
+	@extend .btn;
+	color: $messenger-blue;
+	border: 2px solid $messenger-blue;
+	background: #fff;
+	font-size: 20px;
+	line-height: 20px;
+
+	svg {
+		height: 30px;
+		margin-right: 8px;
+		margin-top: 2px;
+	}
+	
+	.messenger-logo-bubble {
+		fill: $messenger-blue;
+		transition: $default-transition-time ease-out;
+	}
+	
+	.messenger-logo-lightning {
+		fill: #fff;
+		transition: $default-transition-time ease-out;
+	}
+
+	&:hover, &:focus, &:active {
+		color: #fff;
+		background: $messenger-blue;
+
+		.messenger-logo-bubble {
+			fill: #fff;
+		}
+
+		.messenger-logo-lightning {
+			fill: $messenger-blue;
+		}
+	}
+}
+
+.about {
+	min-height: -o-calc(100% - 240px - 55px);
+	min-height: -webkit-calc(100% - 240px - 55px);
+	min-height: -moz-calc(100% - 240px - 55px);
+	min-height: calc(100% - 240px - 55px);
+	padding: 20px 5vw;
+	display: flex;
+	flex-direction: column;
+	background: #F15F79; // fallback for old browsers - B24592
+	background: linear-gradient(315deg, $magenta, #F15F79);
+
+	@media only screen and (min-width: $screen-width-small) {
+		flex-direction: row;
+	}
+
+	h1 {
+		margin-bottom: 5px;
+	}
+}
+
+.about-item {
+	flex: 1;
+	margin: 10px 20px;
+}
+
+footer {
+	height: 55px;
+	padding: 5px 5px;
+	background: rgba(45, 45 ,55 , .97);
+	text-align: center;
+}
+
+.copynote {
+	
+}
+
+.mailto {
+	color: $magenta;
+	transition: $default-transition-time ease-out;
+
+	&:hover, &:focus {
+		color: inherit;
+	}
+}
+
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}

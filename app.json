@@ -1,0 +1,5 @@
+{
+  "name": "Messenger button site",
+  "description": "Node.js app using Express 4",
+  "keywords": ["node", "express", "static"]
+}
