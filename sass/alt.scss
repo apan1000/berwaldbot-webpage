@@ -15,9 +15,16 @@ $default-transition-time: 175ms;
 // Screen variables
 $screen-height-medium: 540px;
 $screen-height-small: 340px;
+$screen-width-large: 1240px;
 $screen-width-medium: 768px;
 $screen-width-small: 420px;
 $screen-width-mini: 330px;
+
+@mixin min-width($width) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
 
 *,
 *:before,
@@ -33,7 +40,7 @@ html, body {
 
 body {
 	font: 1em $fonts;
-	font-weight: 300;
+	font-weight: normal;
 	color: $primary-text-color;
 	background: #fff;
 }
@@ -166,21 +173,36 @@ header {
 	padding: 20px 5vw;
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	background: #F15F79; // fallback for old browsers - B24592
 	background: linear-gradient(315deg, $magenta, #F15F79);
 
-	@media only screen and (min-width: $screen-width-small) {
+	@include min-width($screen-width-small) {
 		flex-direction: row;
+	}
+
+	@include min-width($screen-width-large) {
+		flex-direction: row;
+		padding: 20px 15vw;
 	}
 
 	h1 {
 		margin-bottom: 5px;
+		font-weight: normal;
 	}
 }
 
 .about-item {
 	flex: 1;
 	margin: 10px 20px;
+
+	@include min-width($screen-width-small) {
+		min-width: 41%;
+	}
+
+	@include min-width($screen-width-medium) {
+		min-width: 280px;
+	}
 }
 
 footer {
@@ -188,10 +210,12 @@ footer {
 	padding: 5px 5px;
 	background: rgba(45, 45 ,55 , .97);
 	text-align: center;
+	font-size: 15px;
+	font-weight: 300;
 }
 
 .copynote {
-	
+
 }
 
 .mailto {

@@ -1,19 +1,22 @@
 {
-  "name": "Berwaldbot webpage",
+  "name": "berwaldbot-webpage",
   "version": "0.2.5",
-  "description": "A sample Node.js app using Express 4",
+  "description": "Simple Node.js app using Express 4",
   "engines": {
     "node": "6.9.1"
   },
   "main": "index.js",
   "scripts": {
-    "start": "set LT=true&& node index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "ejs": "2.4.1",
     "express": "4.13.3",
     "pg": "6.x",
     "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "ngrok": "2.2.6"
   },
   "repository": {
     "type": "git",

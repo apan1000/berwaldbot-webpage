@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-if(process.env.LT) {
+if(process.argv[2]) {
 	var ngrok = require('ngrok');
 	ngrok.connect({
 		proto: 'http', // http|tcp|tls 
